@@ -1,7 +1,12 @@
+# Archivo principal del programa.
+
+# Importaciones necesarias para el funcionamiento del código.
 import requests
 import pandas as pd
+import funciones
+import emojis
 
-# Campos que necesitamos de la API (la API devuelve 400 si no se especifican 'fields')
+# Campos que necesitamos de la API (la API devuelve 400 si no se especifican 'fields').
 FIELDS = "name,translations,population,area,continents"
 CONT_MAP = {
     'Africa': 'África', 'Americas': 'América', 'South America': 'América',
@@ -31,22 +36,34 @@ def crear_csv_paises():
     df.to_csv('paises.csv', index=False, encoding='utf-8-sig')
     print("Archivo 'paises.csv' creado exitosamente. Columnas:", ", ".join(df.columns))
 
-if __name__ == '__main__':
+# Función principal del programa, donde se maneja el menú y las opciones seleccionadas.
+def main():
     crear_csv_paises()
-    
-print(f"""
-⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐
-⏐⏐           Base de datos: Países             ⏐⏐
-⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐     
-⏐⏐           Seleccione una opción.            ⏐⏐
-⏐⏐                                             ⏐⏐ 
-⏐⏐         (1)                                 ⏐⏐      
-⏐⏐         (2)                                 ⏐⏐      
-⏐⏐         (3)                                 ⏐⏐
-⏐⏐         (4)                                 ⏐⏐ 
-⏐⏐         (5)                                 ⏐⏐ 
-⏐⏐         (6)                                 ⏐⏐ 
-⏐⏐         (7)                                 ⏐⏐
-⏐⏐                                             ⏐⏐        
-⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
-      """)
+    eleccion:int = int()
+    while eleccion != 7:
+        try:
+            eleccion:int = funciones.menu()
+            if eleccion == 1:
+                print("Opción 1 seleccionada.")
+            elif eleccion == 2:
+                print("Opción 2 seleccionada.")
+            elif eleccion == 3:
+                print("Opción 3 seleccionada.")
+            elif eleccion == 4:
+                print("Opción 4 seleccionada.")
+            elif eleccion == 5:
+                print("Opción 5 seleccionada.")
+            elif eleccion == 6:
+                print("Opción 6 seleccionada.")
+            elif eleccion == 7:
+                print("Saliendo del programa.")
+            else:
+                print("Opción inválida. Por favor, intente de nuevo.")                                            
+        except KeyboardInterrupt:
+            print(f"Programa terminado por el usuario.")
+        except ValueError as e:
+            print(f"Error de valor ingresado. Por favor, ingrese un número válido.")     
+
+# Llamada a la función principal.
+if __name__ == '__main__':
+    main()
