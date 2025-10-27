@@ -44,23 +44,31 @@ def main():
         try:
             eleccion:int = funciones.menu()
             if eleccion == 1:
-                print("Opción 1 seleccionada.")
-                buscar_pais()
+                try:
+                    paises = funciones.leer_paises()
+                    if paises:                      
+                        print(f"Se encontraron {len(paises)} países en total.")
+                        print("Mostrando los países como prueba:")
+                        for pais in paises:
+                            print(f"\nPaís: {pais['nombre']}")
+                            print(f"Población: {pais['poblacion']}")
+                            print(f"Área: {pais['area_km2']} km²")
+                            print(f"Continente: {pais['continente']}")
+                            print("-" * 50)
+                    else:
+                        print("No se encontraron países en el archivo.")        
+                except Exception as e:
+                    print(f"Error al leer los países: {str(e)}")
             elif eleccion == 2:
                 print("Opción 2 seleccionada.")
-                filtrar_paises()
             elif eleccion == 3:
                 print("Opción 3 seleccionada.")
-                ordenar_paises()
             elif eleccion == 4:
                 print("Opción 4 seleccionada.")
-                estadisticas()
             elif eleccion == 5:
                 print("Opción 5 seleccionada.")
-                agregar_pais()
             elif eleccion == 6:
                 print("Opción 6 seleccionada.")
-                actualizar_pais()
             elif eleccion == 7:
                 print("Saliendo del programa.")
             else:
@@ -72,5 +80,4 @@ def main():
 
 # Llamada a la función principal.
 if __name__ == '__main__':
-
     main()
