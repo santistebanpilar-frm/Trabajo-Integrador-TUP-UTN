@@ -369,18 +369,46 @@ def estadisticas():
             # Solicitar al usuario que estadistica desea ver.
             opcion : str = str(input("Ingrese una opcion: "))  
             if opcion == "1":
-                pass
+                print("op 1") 
+                #Convertimos las poblaciones a número enteros para mejor facilidad al comparar dentro de una lista de tuplas
+                poblaciones = [(int(p['poblacion']),p['nombre']) for p in paises]
+                mayor_poblacion = max(poblaciones)
+                menor_poblacion = min(poblaciones)
+                print(f"País con Mayor Población: {mayor_poblacion} ")
+                print(f"País con Menor Población: {menor_poblacion} ")
             elif opcion == "2":
-                pass
+                print("OP2")
+                #Calcular promedio de Población
+                total_poblacion = sum(int(p['poblacion']) for p in paises)
+                promedio_poblacion = total_poblacion / len(paises)
+                print(f"Promedio de Población: {promedio_poblacion:.2f}")
             elif opcion == "3":
-                pass
+                print("OP3")
+                #Calcular promedio de Superficie
+                total_superficie = sum(float(p['area_km2']) for p in paises)
+                promedio_superficie = total_superficie / len(paises)
+                print(f"Promedio de Superficie: {promedio_superficie:.2f}")
             elif opcion == "4":
-                pass
+                print("OP4")
+                #Calcular cuantos paises hay por continente
+                cantidad_continentes = []
+                for pais in paises:
+                    continente = pais['continente']
+                    cantidad_continentes.append(continente)
+                conteo = {}
+                for continente in cantidad_continentes:
+                    if continente in conteo:
+                        conteo[continente] += 1
+                    else:
+                        conteo[continente] = 1
+                print("Cantidad de Países por Continente:")
+                for continente, cantidad in conteo.items():
+                    print(f"{continente}: {cantidad}")
             elif opcion == "5":
                 print("Volviendo al menú principal...")
             else:
                 print("Opcion invalida, intente nuevamnte!")
         except KeyboardInterrupt:
-            print(f"Programa terminado por el usuario.")
+            print("Programa terminado por el usuario.")
         except ValueError as e:
-            print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
+            print(f"{e} Error de valor ingresado. Por favor, ingrese un número válido.") 
