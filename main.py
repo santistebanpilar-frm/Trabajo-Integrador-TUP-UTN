@@ -75,9 +75,9 @@ def main():
             elif eleccion == 2:
                 funciones.filtrar_paises()
             elif eleccion == 3:
-                funciones.ordenar_paises
+                funciones.ordenar_paises()
             elif eleccion == 4:
-                funciones.estadisticas
+                funciones.estadisticas()
             elif eleccion == 5:
                 print("Saliendo del programa...")
             else:
