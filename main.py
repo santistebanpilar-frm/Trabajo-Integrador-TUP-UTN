@@ -79,7 +79,7 @@ def main():
             elif eleccion == 4:
                 funciones.estadisticas
             elif eleccion == 5:
-                print("Saliendo del programa.")
+                print("Saliendo del programa...")
             else:
                 print("Opción inválida. Por favor, intente de nuevo.")                                            
         except KeyboardInterrupt:

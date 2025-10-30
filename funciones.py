@@ -62,6 +62,8 @@ def validar_input(texto):
     raise ValueError("No se puede ingresar espacios vacios.")
   elif texto==".":
     raise ValueError("No se puede ingresar un punto.")
+  elif texto.isnumeric():
+    raise ValueError("No se permiten números.")
   return texto.title()
 
 def normalizar_input(texto):
@@ -91,6 +93,7 @@ def buscar_pais():
                 entrada_valida = True
             except ValueError as e:
                 print(f"Error: {e} Intente de nuevo.")
+                print(" ")
             except KeyboardInterrupt:
                 print("Búsqueda cancelada por el usuario.")
                 return
@@ -103,6 +106,7 @@ def buscar_pais():
 
         if len(encontrados) > 0:
             print("País(es) encontrado(s):")
+            print(" ")
             for pais in encontrados:
                 print(f"Nombre: {pais['nombre']}")
                 print(f"Población: {pais['poblacion']}")
