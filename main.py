@@ -34,7 +34,7 @@ def obtener_datos_paises():
 
 def crear_csv_paises():
     if not os.path.exists('paises.csv'):
-        print("Creando archivo 'paises.csv' (Alternativa sin pandas)...")
+        print("Creando archivo 'paises.csv'...")
         try:
             datos = obtener_datos_paises()
         except requests.exceptions.RequestException as e:
@@ -48,6 +48,8 @@ def crear_csv_paises():
             
             for p in datos:
                 nombre = (p.get('translations') or {}).get('spa', {}).get('common') or p.get('name', {}).get('common', '')
+                if 'Santa Elena, Ascensión y Tristán de Acuña' in nombre:
+                    nombre = 'Santa Elena Ascensión y Tristán de Acuña'
                 cont = (p.get('continents') or [p.get('region', 'N/A')])[0]
                 
                 fila = {
@@ -86,7 +88,8 @@ def main():
             print(f"Programa terminado por el usuario.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")     
-            
+        except Exception as e:
+            print(f"Error inesperado: {str(e)}")
 # -------------------------------
 # Llamada a la función principal.
 # -------------------------------

@@ -62,7 +62,7 @@ def validar_input(texto):
     raise ValueError("No se puede ingresar un punto.")
   elif texto.isnumeric():
     raise ValueError("No se permiten números.")
-  return texto.title()
+  return texto
 
 def normalizar_input(texto):
   texto = texto.lower() 
@@ -79,7 +79,9 @@ def elegir_continente(continente_a_buscar:int):
     elif continente_a_buscar == 4:
         continente_elegido = 'Europa'
     elif continente_a_buscar == 5:
-        continente_elegido = 'Oceanía'     
+        continente_elegido = 'Oceanía' 
+    elif continente_a_buscar == 6:
+        continente_elegido = 'Antártida'    
     return continente_elegido
 
 # -------------------------------
@@ -144,9 +146,9 @@ def filtrar_paises():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐     
             ⏐⏐           Seleccione una opción.            ⏐⏐
             ⏐⏐                                             ⏐⏐ 
-            ⏐⏐          (1) Por Continentes.               ⏐⏐      
-            ⏐⏐          (2) Por Rango de Supercifie.       ⏐⏐      
-            ⏐⏐          (3) Por Rango de Población.        ⏐⏐
+            ⏐⏐          (1) Por continentes.               ⏐⏐      
+            ⏐⏐          (2) Por rango de supercifie.       ⏐⏐      
+            ⏐⏐          (3) Por rango de población.        ⏐⏐
             ⏐⏐          (4) Volver al menú principal.      ⏐⏐
             ⏐⏐                                             ⏐⏐        
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
@@ -173,10 +175,11 @@ def filtrar_paises():
                                         (3) Asia.
                                         (4) Europa.
                                         (5) Oceanía.
+                                        (6) Antártida.
                             ------------------------------------            
                                 """)
                             continente_a_buscar = int(input("Usted seleccionó la opción: "))
-                            if 1 <= continente_a_buscar <= 5:
+                            if 1 <= continente_a_buscar <= 6:
                                 entrada_valida = True
                             else:
                                 print("Opción inválida. Por favor, intente de nuevo.")       
@@ -248,7 +251,46 @@ def filtrar_paises():
                     print(f"Error inesperado: {str(e)}")
             # Filtrado por rango de población.
             elif opcion == "3":
-                pass
+                try:
+                    entrada_valida:bool = False
+                    minimo:int = ()
+                    maximo:int = ()
+                    while not entrada_valida:
+                        try:
+                           minimo:int = int(input("Ingrese el minimo del rango de población:"))
+                           if minimo <= 0:
+                               print("Error. No se pueden ingresar numeros negativos o cero.")
+                               print(" ")    
+                           else:
+                               maximo:int = int(input("Ingrese el máximo del rango de población:"))
+                               if maximo <= 0 or maximo <= minimo:
+                                   print("Error. No se pueden ingresar numeros negativos, cero, o que el maximo sea menor que el minimo.")
+                                   print(" ")
+                               else:                                      
+                                   entrada_valida = True  
+                        except ValueError as e:
+                            print(f"Error de valor ingresado. Por favor, ingrese un número válido.") 
+                            print(" ")
+                        except KeyboardInterrupt:
+                            print("Búsqueda cancelada por el usuario.")
+                            return
+                        
+                    encontrados = [
+                        poblacion for poblacion in paises
+                        if int(poblacion["poblacion"]) >= minimo and int(poblacion["poblacion"]) <= maximo
+                    ]
+                    
+                    if len(encontrados) > 0:
+                        print(f"País(es) con una poblacion entre {minimo} y {maximo}:")
+                        print(" ")
+                        for poblacion in encontrados:
+                            print(f"Nombre: {poblacion['nombre']}")
+                            print(f"Población: {poblacion['poblacion']}")
+                            print(f"Área: {poblacion['area_km2']} km²")
+                            print(f"Continente: {poblacion['continente']}")
+                            print("-" * 40)            
+                except Exception as e:
+                    print(f"Error inesperado: {str(e)}")
             # Salir.
             elif opcion == "4":
                 print("Volviendo al menú principal...")
