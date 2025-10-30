@@ -1,7 +1,13 @@
-#Funciones generales para el código.
-
-# Importaciones necesarias.
+# -----------------------------------------------------------
+# Importaciones necesarias para el funcionamiento del código.
+# -----------------------------------------------------------
 import emojis
+import csv
+import os
+
+# -----------------------------------
+# Funciones generales para el código.
+# -----------------------------------
 
 # Función para la presentación del menú y la toma de decisiones.
 def menu():
@@ -15,9 +21,7 @@ def menu():
 ⏐⏐          (2)\U0001F50D Filtrar países.              ⏐⏐      
 ⏐⏐          (3)\U0001F4DA Ordenar países.              ⏐⏐
 ⏐⏐          (4)\U0001F4CA Mostrar estadísticas.        ⏐⏐ 
-⏐⏐          (5)\U00002795 Agregar un país.             ⏐⏐ 
-⏐⏐          (6)\U0001F504 Actualizar un país.          ⏐⏐ 
-⏐⏐          (7)\U0000274c Salir.                       ⏐⏐
+⏐⏐          (5)\U0000274c Salir.                       ⏐⏐
 ⏐⏐                                             ⏐⏐        
 ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
       """)
@@ -33,7 +37,7 @@ def leer_paises():
             
             for linea in archivo:
                 datos = linea.strip().split(',')
-                if len(datos) >= 4:  # se verifica que tengamos todos los campos necesarios
+                if len(datos) >= 4:  # Se verifica que tengamos todos los campos necesarios.
                     pais = {
                         'nombre': datos[0].strip(),
                         'poblacion': datos[1].strip(),
@@ -50,7 +54,7 @@ def leer_paises():
         print(f"Error al leer los países: {str(e)}")
     return []  # Retornar lista vacía en caso de error
 
-#Funciones de validaciones
+# Funciones de validaciones.
 def validar_input(texto):
   if texto == "":
     raise ValueError("No se permite dejar el campo vacio.")
@@ -65,7 +69,11 @@ def normalizar_input(texto):
   tabla = str.maketrans( "áéíóúüñ", "aeiouun" ) 
   return texto.translate(tabla)
 
-#Funciones dentro del menu
+# -------------------------------
+# Funciones principales del menú.
+# -------------------------------
+
+# Elección 1: Buscar país.
 def buscar_pais():
     paises = leer_paises()
     if not paises:
@@ -82,7 +90,7 @@ def buscar_pais():
                 pais_a_buscar = validar_input(entrada_pais)
                 entrada_valida = True
             except ValueError as e:
-                print(f"Error: {e}. Intente de nuevo.")
+                print(f"Error: {e} Intente de nuevo.")
             except KeyboardInterrupt:
                 print("Búsqueda cancelada por el usuario.")
                 return
@@ -102,11 +110,11 @@ def buscar_pais():
                 print(f"Continente: {pais['continente']}")
                 print("-" * 40)
         else:
-            print(f"No se encontró al pais '{pais_a_buscar}' en nuestra base de datos")
+            print(f"No se encontró al pais '{pais_a_buscar}' en nuestra base de datos.")
     except Exception as e:
         print(f"Error inesperado: {str(e)}")
 
-#Funcion para filtrar paises
+# Elección 2: Filtrar países.
 def filtrar_paises():
     paises = leer_paises()
     if not paises:
@@ -126,7 +134,7 @@ def filtrar_paises():
     ⏐⏐                                             ⏐⏐        
     ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
         """)
-    #Solicitar al usuario que filtro desea realizar
+    #Solicitar al usuario que filtro desea realizar.
     opcion : str = str(input("Ingrese una opcion: "))
     while opcion != "4":
         try:
@@ -145,7 +153,7 @@ def filtrar_paises():
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
         
-#Funcion para ordenar paises
+# Elección 3: Ordenar países.
 def ordenar_paises():
     paises = leer_paises()
     if not paises:
@@ -165,7 +173,7 @@ def ordenar_paises():
     ⏐⏐                                             ⏐⏐        
     ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
         """)
-    #Solicitar al usuario que como ordenar a los paises
+    #Solicitar al usuario que como ordenar a los paises.
     opcion : str = str(input("Ingrese una opcion: "))
     while opcion != "5":
         try:
@@ -186,6 +194,7 @@ def ordenar_paises():
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
 
+# Elección 4: Estadísticas.
 def estadisticas():
     paises = leer_paises()
     if not paises:
@@ -205,7 +214,7 @@ def estadisticas():
     ⏐⏐                                             ⏐⏐        
     ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
         """)
-    #Solicitar al usuario que estadistica desea ver
+    #Solicitar al usuario que estadistica desea ver.
     opcion : str = str(input("Ingrese una opcion: "))
     while opcion != "5":
         try:
@@ -225,9 +234,3 @@ def estadisticas():
             print(f"Programa terminado por el usuario.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
-
-def agregar_pais():
-  pass
-
-def actualizar_paises():
-  pass
