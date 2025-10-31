@@ -69,6 +69,7 @@ def normalizar_input(texto):
   tabla = str.maketrans( "áéíóúüñ", "aeiouun" ) 
   return texto.translate(tabla)
 
+# Funciones auxiliares.
 def elegir_continente(continente_a_buscar:int):
     if continente_a_buscar == 1:
         continente_elegido = 'África'
@@ -122,7 +123,7 @@ def buscar_pais():
                 print(f"Error: {e} Intente de nuevo.")
                 print(" ")
             except KeyboardInterrupt:
-                print("Búsqueda cancelada por el usuario.")
+                print("Error: Interrupción por teclado.")
                 return
 
         pais_normalizado = normalizar_input(pais_a_buscar)
@@ -144,6 +145,8 @@ def buscar_pais():
             print(f"No se encontró al pais '{pais_a_buscar}' en nuestra base de datos.")
     except Exception as e:
         print(f"Error inesperado: {str(e)}")
+    os.system('pause')
+    os.system('cls' if os.name == 'nt' else 'clear')    
 
 # Elección 2: Filtrar países.
 def filtrar_paises():
@@ -201,7 +204,7 @@ def filtrar_paises():
                             print(f"Error de valor ingresado. Por favor, ingrese un número válido.") 
                             print(" ")
                         except KeyboardInterrupt:
-                            print("Búsqueda cancelada por el usuario.")
+                            print("Error: Interrupción por teclado.")
                             return
                         
                     continente_elegido = elegir_continente(continente_a_buscar)
@@ -244,7 +247,7 @@ def filtrar_paises():
                             print(f"Error de valor ingresado. Por favor, ingrese un número válido.") 
                             print(" ")
                         except KeyboardInterrupt:
-                            print("Búsqueda cancelada por el usuario.")
+                            print("Error: Interrupción por teclado.")
                             return
                         
                     encontrados = [
@@ -286,7 +289,7 @@ def filtrar_paises():
                             print(f"Error de valor ingresado. Por favor, ingrese un número válido.") 
                             print(" ")
                         except KeyboardInterrupt:
-                            print("Búsqueda cancelada por el usuario.")
+                            print("Error: Interrupción por teclado.")
                             return
                         
                     encontrados = [
@@ -311,10 +314,10 @@ def filtrar_paises():
             else:
                 print("Opción inválida. Port favor, intente de nuevo.")
         except KeyboardInterrupt:
-            print(f"Programa terminado por el usuario.")
+            print(f"Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
-            
+    os.system('cls' if os.name == 'nt' else 'clear')         
 # Elección 3: Ordenar países.
 def ordenar_paises():
     paises = leer_paises()
@@ -341,10 +344,7 @@ def ordenar_paises():
             # Solicitar al usuario que como ordenar a los paises.
             opcion : str = str(input("Ingrese una opcion: "))
             if opcion == "1":
-                ordenados_nombre = sorted(paises, key=obtener_clave("nombre"))
-                print("Países ordenados por Nombre:")
-                for pais in ordenados_nombre:
-                    print(f" - {pais['nombre']}")
+                pass
             elif opcion == "2":
                 ordenados_poblacion = sorted(paises, key=obtener_clave("poblacion"))
                 print("Países ordenados por Población:")
@@ -363,10 +363,10 @@ def ordenar_paises():
             else:
                 print("Opcion invalida, intente nuevamnte!")
         except KeyboardInterrupt:
-            print(f"Programa terminado por el usuario.")
+            print(f"Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
-
+    os.system('cls' if os.name == 'nt' else 'clear') 
 # Elección 4: Estadísticas.
 def estadisticas():
     paises = leer_paises()
@@ -441,7 +441,6 @@ def estadisticas():
             else:
                 print("Opcion invalida, intente nuevamnte!")
         except KeyboardInterrupt:
-            print("Programa terminado por el usuario.")
+            print("Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"{e} Error de valor ingresado. Por favor, ingrese un número válido.") 
-
