@@ -262,7 +262,9 @@ def filtrar_paises():
                             print(f"Población: {area['poblacion']}")
                             print(f"Área: {area['area_km2']} km²")
                             print(f"Continente: {area['continente']}")
-                            print("-" * 40)            
+                            print("-" * 40)
+                    else:
+                        print("No se encontraron países en ese rango de superficie.")                    
                 except Exception as e:
                     print(f"Error inesperado: {str(e)}")
             # Filtrado por rango de población.
@@ -304,7 +306,9 @@ def filtrar_paises():
                             print(f"Población: {poblacion['poblacion']}")
                             print(f"Área: {poblacion['area_km2']} km²")
                             print(f"Continente: {poblacion['continente']}")
-                            print("-" * 40)            
+                            print("-" * 40)    
+                    else:
+                        print("No se encontraron países en ese rango de población.")                
                 except Exception as e:
                     print(f"Error inesperado: {str(e)}")
             # Salir.
