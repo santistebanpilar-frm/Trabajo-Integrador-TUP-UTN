@@ -160,7 +160,7 @@ def filtrar_paises():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐
             ⏐⏐                Filtrar paises               ⏐⏐
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐     
-            ⏐⏐           Seleccione una opción.            ⏐⏐
+            ⏐⏐            Seleccione una opción.           ⏐⏐
             ⏐⏐                                             ⏐⏐ 
             ⏐⏐          (1) Por continentes.               ⏐⏐      
             ⏐⏐          (2) Por rango de supercifie.       ⏐⏐      
@@ -331,7 +331,7 @@ def ordenar_paises():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐
             ⏐⏐                Ordenar paises               ⏐⏐
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐     
-            ⏐⏐           Seleccione una opción.            ⏐⏐
+            ⏐⏐            Seleccione una opción.           ⏐⏐
             ⏐⏐                                             ⏐⏐ 
             ⏐⏐          (1) Por nombre.                    ⏐⏐      
             ⏐⏐          (2) Por poblacion.                 ⏐⏐      
@@ -387,7 +387,7 @@ def estadisticas():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐
             ⏐⏐                 Estadisticas                ⏐⏐
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐     
-            ⏐⏐           Seleccione una opción.            ⏐⏐
+            ⏐⏐            Seleccione una opción.           ⏐⏐
             ⏐⏐                                             ⏐⏐ 
             ⏐⏐    (1) Pais con Mayor y Menor Población.    ⏐⏐      
             ⏐⏐    (2) Promedio de Población.               ⏐⏐      
