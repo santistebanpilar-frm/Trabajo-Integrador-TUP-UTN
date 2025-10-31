@@ -1,8 +1,8 @@
 # -----------------------------------------------------------
 #        Integrador Final - Manejo de Datos de Países
-#                   Programación I
+#                    Programación I
 # -----------------------------------------------------------
-# Alumnos: Pablo Quirós y Pilar Santiesteban
+# Alumnos: Pablo Quirós y Pilar Santisteban
 # Turno: 1Prog2
 # Año: 2025
 # -----------------------------------------------------------

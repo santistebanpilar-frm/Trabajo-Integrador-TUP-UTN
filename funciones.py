@@ -86,7 +86,6 @@ def elegir_continente(continente_a_buscar:int):
     return continente_elegido
 
 def obtener_clave(criterio):
-    """Devuelve una función de clave según el criterio elegido."""
     def clave(pais):
         if criterio == "nombre":
             return pais["nombre"].lower()
@@ -161,7 +160,7 @@ def filtrar_paises():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐
             ⏐⏐                Filtrar paises               ⏐⏐
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐     
-            ⏐⏐           Seleccione una opción.            ⏐⏐
+            ⏐⏐            Seleccione una opción.           ⏐⏐
             ⏐⏐                                             ⏐⏐ 
             ⏐⏐          (1) Por continentes.               ⏐⏐      
             ⏐⏐          (2) Por rango de supercifie.       ⏐⏐      
@@ -312,12 +311,13 @@ def filtrar_paises():
             elif opcion == "4":
                 print("Volviendo al menú principal...")
             else:
-                print("Opción inválida. Port favor, intente de nuevo.")
+                print("Opción inválida. Por favor, intente de nuevo.")
         except KeyboardInterrupt:
             print(f"Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
-    os.system('cls' if os.name == 'nt' else 'clear')         
+    os.system('cls' if os.name == 'nt' else 'clear')  
+          
 # Elección 3: Ordenar países.
 def ordenar_paises():
     paises = leer_paises()
@@ -331,47 +331,54 @@ def ordenar_paises():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐
             ⏐⏐                Ordenar paises               ⏐⏐
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐     
-            ⏐⏐           Seleccione una opción.            ⏐⏐
+            ⏐⏐            Seleccione una opción.           ⏐⏐
             ⏐⏐                                             ⏐⏐ 
-            ⏐⏐          (1) Por Nombre.                    ⏐⏐      
-            ⏐⏐          (2) Por Poblacion.                 ⏐⏐      
-            ⏐⏐          (3) Por Superfice Ascendente.      ⏐⏐
-            ⏐⏐          (4) Por Superfice Desencente.      ⏐⏐
+            ⏐⏐          (1) Por nombre.                    ⏐⏐      
+            ⏐⏐          (2) Por poblacion.                 ⏐⏐      
+            ⏐⏐          (3) Por superfice ascendente.      ⏐⏐
+            ⏐⏐          (4) Por superfice desencente.      ⏐⏐
             ⏐⏐          (5) Volver al menú principal.      ⏐⏐
             ⏐⏐                                             ⏐⏐        
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
                 """)
             # Solicitar al usuario que como ordenar a los paises.
-            opcion : str = str(input("Ingrese una opcion: "))
+            opcion : str = str(input("Usted seleccionó la opción: "))
+            
+            # Ordenar por nombre.
             if opcion == "1":
                 ordenados_nombre = sorted(paises, key=obtener_clave("nombre"))
                 print("Países ordenados por Nombre:")
                 for pais in ordenados_nombre:
                     print(f" - {pais['nombre']}")
+            # Ordenar por población.
             elif opcion == "2":
                 ordenados_poblacion = sorted(paises, key=obtener_clave("poblacion"))
-                print("Países ordenados por Población:")
+                print("Países ordenados por población:")
                 for pais in ordenados_poblacion:
                     print(f" - {pais['nombre']}: {pais['poblacion']}")
+            # Ordenar por superficie ascendente.
             elif opcion == "3":
                 ordenados_superficie= sorted(paises, key=obtener_clave("superficie"))
-                print("Países ordenados por Superficie(Ascendente):")
+                print("Países ordenados por superficie(Ascendente):")
                 for pais in ordenados_superficie:
                     print(f"- {pais['nombre']}: {pais['area_km2']} km²")
+            # Ordenar por superficie descendente.    
             elif opcion == "4":
                 ordenados_superficie = sorted(paises, key=obtener_clave("superficie"), reverse=True)
-                print("Países ordenados por Superficie(Descendente):")
+                print("Países ordenados por superficie(Descendente):")
                 for pais in ordenados_superficie:
                     print(f"- {pais['nombre']}: {pais['area_km2']} km²")
+            # Salir.
             elif opcion == "5":
                 print("Volviendo al menú principal...")
             else:
-                print("Opcion invalida, intente nuevamnte!")
+                print("Opción inválida. Por favor, intente de nuevo.")
         except KeyboardInterrupt:
             print(f"Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
     os.system('cls' if os.name == 'nt' else 'clear') 
+    
 # Elección 4: Estadísticas.
 def estadisticas():
     paises = leer_paises()
@@ -385,7 +392,7 @@ def estadisticas():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐
             ⏐⏐                 Estadisticas                ⏐⏐
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐     
-            ⏐⏐           Seleccione una opción.            ⏐⏐
+            ⏐⏐            Seleccione una opción.           ⏐⏐
             ⏐⏐                                             ⏐⏐ 
             ⏐⏐    (1) Pais con Mayor y Menor Población.    ⏐⏐      
             ⏐⏐    (2) Promedio de Población.               ⏐⏐      
@@ -396,9 +403,11 @@ def estadisticas():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
                 """)
             # Solicitar al usuario que estadistica desea ver.
-            opcion : str = str(input("Ingrese una opcion: "))  
+            opcion : str = str(input("Usted seleccionó la opción: ")) 
+            
+            # Estadistica 1: País con mayor y menor población.  
             if opcion == "1":
-                #Convertimos las poblaciones a número enteros para mejor facilidad al comparar dentro de una lista de tuplas
+                # Convertimos las poblaciones a número enteros para mejor facilidad al comparar dentro de una lista de tuplas.
                 poblaciones = [(int(p['poblacion']),p['nombre']) for p in paises]
                 mayor_poblacion = max(poblaciones)
                 menor_poblacion = min(poblaciones)
@@ -409,25 +418,25 @@ def estadisticas():
                         if int(pais["poblacion"]) == 0
                     ]
                 if len(encontrados_menor) > 0:
-                    print("Pais(es) con Menor Número de  Población: ")
+                    print("Pais(es) con Menor Número de Población: ")
                     for pais in encontrados_menor:
                         print(f"Nombre: {pais['nombre']}")
                         print(f"Población: {pais['poblacion']} habitantes")
                         print("-" * 40)
                 else:
                     print(f"País con Menor Número de Población: {menor_poblacion[1]} ({menor_poblacion[0]:,} habitantes)")
+            # Estadistica 2: Promedio de población.
             elif opcion == "2":
-                #Calcular promedio de Población
                 total_poblacion = sum(int(p['poblacion']) for p in paises)
                 promedio_poblacion = total_poblacion / len(paises)
                 print(f"Promedio de Población: {promedio_poblacion:.2f} habitantes")
+            # Estadistica 3: Promedio de superficie.
             elif opcion == "3":
-                #Calcular promedio de Superficie
                 total_superficie = sum(float(p['area_km2']) for p in paises)
                 promedio_superficie = total_superficie / len(paises)
                 print(f"Promedio de Superficie: {promedio_superficie:.2f} km²")
+            # Estadistica 4: Cantidad de países por continente.    
             elif opcion == "4":
-                #Calcular cuantos paises hay por continente
                 cantidad_continentes = []
                 for pais in paises:
                     continente = pais['continente']
@@ -441,10 +450,11 @@ def estadisticas():
                 print("Cantidad de Países por Continente:")
                 for continente, cantidad in conteo.items():
                     print(f"{continente}: {cantidad}")
+            # Salir.
             elif opcion == "5":
                 print("Volviendo al menú principal...")
             else:
-                print("Opcion invalida, intente nuevamnte!")
+                print("Opción inválida. Por favor, intente de nuevo.")
         except KeyboardInterrupt:
             print("Error: Interrupción por teclado.")
         except ValueError as e:
