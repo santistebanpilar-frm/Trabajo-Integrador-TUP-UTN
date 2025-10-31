@@ -84,6 +84,20 @@ def elegir_continente(continente_a_buscar:int):
         continente_elegido = 'Antártida'    
     return continente_elegido
 
+def obtener_clave(criterio):
+    """Devuelve una función de clave según el criterio elegido."""
+    def clave(pais):
+        if criterio == "nombre":
+            return pais["nombre"].lower()
+        elif criterio == "poblacion":
+            return int(pais["poblacion"])
+        elif criterio == "superficie":
+            return float(pais["superficie"])
+        else:
+            return pais["nombre"].lower()
+    return clave
+
+
 # -------------------------------
 # Funciones principales del menú.
 # -------------------------------
@@ -215,12 +229,12 @@ def filtrar_paises():
                     maximo:float = ()
                     while not entrada_valida:
                         try:
-                           minimo:float = float(input("Ingrese el minimo del rango de superficie:"))
+                           minimo:float = float(input("Ingrese el minimo del rango de superficie: "))
                            if minimo <= 0:
                                print("Error. No se pueden ingresar numeros negativos o cero.")
                                print(" ")    
                            else:
-                               maximo:float = float(input("Ingrese el máximo del rango de superficie:"))
+                               maximo:float = float(input("Ingrese el máximo del rango de superficie: "))
                                if maximo <= 0 or maximo <= minimo:
                                    print("Error. No se pueden ingresar numeros negativos, cero, o que el maximo sea menor que el minimo.")
                                    print(" ")
@@ -257,12 +271,12 @@ def filtrar_paises():
                     maximo:int = ()
                     while not entrada_valida:
                         try:
-                           minimo:int = int(input("Ingrese el minimo del rango de población:"))
-                           if minimo <= 0:
-                               print("Error. No se pueden ingresar numeros negativos o cero.")
+                           minimo:int = int(input("Ingrese el minimo del rango de población: "))
+                           if minimo < 0:
+                               print("Error. No se pueden ingresar numeros negativos.")
                                print(" ")    
                            else:
-                               maximo:int = int(input("Ingrese el máximo del rango de población:"))
+                               maximo:int = int(input("Ingrese el máximo del rango de población: "))
                                if maximo <= 0 or maximo <= minimo:
                                    print("Error. No se pueden ingresar numeros negativos, cero, o que el maximo sea menor que el minimo.")
                                    print(" ")
@@ -327,13 +341,23 @@ def ordenar_paises():
             # Solicitar al usuario que como ordenar a los paises.
             opcion : str = str(input("Ingrese una opcion: "))
             if opcion == "1":
-                pass
+                ordenados_nombre = sorted(paises, key=obtener_clave("nombre"))
+                print("Países ordenados por Nombre:")
+                for pais in ordenados_nombre:
+                    print(f" - {pais['nombre']}")
             elif opcion == "2":
-                pass
+                ordenados_poblacion = sorted(paises, key=obtener_clave("poblacion"))
+                print("Países ordenados por Población:")
+                for pais in ordenados_poblacion:
+                    print(f" - {pais['poblacion']}")
             elif opcion == "3":
-                pass
+                ordenados_superficie = sorted(paises, key=obtener_clave("superficies"))
+                print("Países ordenados por Superficie(Ascendente):")
             elif opcion == "4":
-                pass
+                ordenados_superficie = sorted(paises, key=obtener_clave("superficies"), reverse=True)
+                print("Países ordenados por Superficie(Descendente):")
+                for pais in ordenados_superficie:
+                    print(f" - {pais['area_km2']}")
             elif opcion == "5":
                 print("Volviendo al menú principal...")
             else:
@@ -369,27 +393,35 @@ def estadisticas():
             # Solicitar al usuario que estadistica desea ver.
             opcion : str = str(input("Ingrese una opcion: "))  
             if opcion == "1":
-                print("op 1") 
                 #Convertimos las poblaciones a número enteros para mejor facilidad al comparar dentro de una lista de tuplas
                 poblaciones = [(int(p['poblacion']),p['nombre']) for p in paises]
                 mayor_poblacion = max(poblaciones)
                 menor_poblacion = min(poblaciones)
-                print(f"País con Mayor Población: {mayor_poblacion} ")
-                print(f"País con Menor Población: {menor_poblacion} ")
+                print(f"País con Mayor Número de Población: {mayor_poblacion[1]} ({mayor_poblacion[0]:,} habitantes)")
+                print("-" * 40)
+                encontrados_menor = [
+                        pais for pais in paises
+                        if int(pais["poblacion"]) == 0
+                    ]
+                if len(encontrados_menor) > 0:
+                    print("Pais(es) con Menor Número de  Población: ")
+                    for pais in encontrados_menor:
+                        print(f"Nombre: {pais['nombre']}")
+                        print(f"Población: {pais['poblacion']}")
+                        print("-" * 40)
+                else:
+                    print(f"País con Menor Número de Población: {menor_poblacion[1]} ({menor_poblacion[0]:,} habitantes)")
             elif opcion == "2":
-                print("OP2")
                 #Calcular promedio de Población
                 total_poblacion = sum(int(p['poblacion']) for p in paises)
                 promedio_poblacion = total_poblacion / len(paises)
                 print(f"Promedio de Población: {promedio_poblacion:.2f}")
             elif opcion == "3":
-                print("OP3")
                 #Calcular promedio de Superficie
                 total_superficie = sum(float(p['area_km2']) for p in paises)
                 promedio_superficie = total_superficie / len(paises)
                 print(f"Promedio de Superficie: {promedio_superficie:.2f}")
             elif opcion == "4":
-                print("OP4")
                 #Calcular cuantos paises hay por continente
                 cantidad_continentes = []
                 for pais in paises:
@@ -412,3 +444,4 @@ def estadisticas():
             print("Programa terminado por el usuario.")
         except ValueError as e:
             print(f"{e} Error de valor ingresado. Por favor, ingrese un número válido.") 
+
