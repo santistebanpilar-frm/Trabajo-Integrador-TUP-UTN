@@ -459,3 +459,4 @@ def estadisticas():
             print("Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"{e} Error de valor ingresado. Por favor, ingrese un número válido.") 
+    os.system('cls' if os.name == 'nt' else 'clear')
