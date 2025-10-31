@@ -85,7 +85,7 @@ def main():
             else:
                 print("Opción inválida. Por favor, intente de nuevo.")                                            
         except KeyboardInterrupt:
-            print(f"Programa terminado por el usuario.")
+            print(f"Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")     
         except Exception as e:

@@ -69,6 +69,7 @@ def normalizar_input(texto):
   tabla = str.maketrans( "áéíóúüñ", "aeiouun" ) 
   return texto.translate(tabla)
 
+# Funciones auxiliares.
 def elegir_continente(continente_a_buscar:int):
     if continente_a_buscar == 1:
         continente_elegido = 'África'
@@ -108,7 +109,7 @@ def buscar_pais():
                 print(f"Error: {e} Intente de nuevo.")
                 print(" ")
             except KeyboardInterrupt:
-                print("Búsqueda cancelada por el usuario.")
+                print("Error: Interrupción por teclado.")
                 return
 
         pais_normalizado = normalizar_input(pais_a_buscar)
@@ -130,6 +131,8 @@ def buscar_pais():
             print(f"No se encontró al pais '{pais_a_buscar}' en nuestra base de datos.")
     except Exception as e:
         print(f"Error inesperado: {str(e)}")
+    os.system('pause')
+    os.system('cls' if os.name == 'nt' else 'clear')    
 
 # Elección 2: Filtrar países.
 def filtrar_paises():
@@ -187,7 +190,7 @@ def filtrar_paises():
                             print(f"Error de valor ingresado. Por favor, ingrese un número válido.") 
                             print(" ")
                         except KeyboardInterrupt:
-                            print("Búsqueda cancelada por el usuario.")
+                            print("Error: Interrupción por teclado.")
                             return
                         
                     continente_elegido = elegir_continente(continente_a_buscar)
@@ -215,12 +218,12 @@ def filtrar_paises():
                     maximo:float = ()
                     while not entrada_valida:
                         try:
-                           minimo:float = float(input("Ingrese el minimo del rango de superficie:"))
+                           minimo:float = float(input("Ingrese el minimo del rango de superficie: "))
                            if minimo <= 0:
                                print("Error. No se pueden ingresar numeros negativos o cero.")
                                print(" ")    
                            else:
-                               maximo:float = float(input("Ingrese el máximo del rango de superficie:"))
+                               maximo:float = float(input("Ingrese el máximo del rango de superficie: "))
                                if maximo <= 0 or maximo <= minimo:
                                    print("Error. No se pueden ingresar numeros negativos, cero, o que el maximo sea menor que el minimo.")
                                    print(" ")
@@ -230,7 +233,7 @@ def filtrar_paises():
                             print(f"Error de valor ingresado. Por favor, ingrese un número válido.") 
                             print(" ")
                         except KeyboardInterrupt:
-                            print("Búsqueda cancelada por el usuario.")
+                            print("Error: Interrupción por teclado.")
                             return
                         
                     encontrados = [
@@ -257,12 +260,12 @@ def filtrar_paises():
                     maximo:int = ()
                     while not entrada_valida:
                         try:
-                           minimo:int = int(input("Ingrese el minimo del rango de población:"))
-                           if minimo <= 0:
-                               print("Error. No se pueden ingresar numeros negativos o cero.")
+                           minimo:int = int(input("Ingrese el minimo del rango de población: "))
+                           if minimo < 0:
+                               print("Error. No se pueden ingresar numeros negativos.")
                                print(" ")    
                            else:
-                               maximo:int = int(input("Ingrese el máximo del rango de población:"))
+                               maximo:int = int(input("Ingrese el máximo del rango de población: "))
                                if maximo <= 0 or maximo <= minimo:
                                    print("Error. No se pueden ingresar numeros negativos, cero, o que el maximo sea menor que el minimo.")
                                    print(" ")
@@ -272,7 +275,7 @@ def filtrar_paises():
                             print(f"Error de valor ingresado. Por favor, ingrese un número válido.") 
                             print(" ")
                         except KeyboardInterrupt:
-                            print("Búsqueda cancelada por el usuario.")
+                            print("Error: Interrupción por teclado.")
                             return
                         
                     encontrados = [
@@ -297,10 +300,10 @@ def filtrar_paises():
             else:
                 print("Opción inválida. Port favor, intente de nuevo.")
         except KeyboardInterrupt:
-            print(f"Programa terminado por el usuario.")
+            print(f"Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
-            
+    os.system('cls' if os.name == 'nt' else 'clear')         
 # Elección 3: Ordenar países.
 def ordenar_paises():
     paises = leer_paises()
@@ -327,7 +330,7 @@ def ordenar_paises():
             # Solicitar al usuario que como ordenar a los paises.
             opcion : str = str(input("Ingrese una opcion: "))
             if opcion == "1":
-                pass
+                pass 
             elif opcion == "2":
                 pass
             elif opcion == "3":
@@ -339,10 +342,10 @@ def ordenar_paises():
             else:
                 print("Opcion invalida, intente nuevamnte!")
         except KeyboardInterrupt:
-            print(f"Programa terminado por el usuario.")
+            print(f"Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"Error de valor ingresado. Por favor, ingrese un número válido.")  
-
+    os.system('cls' if os.name == 'nt' else 'clear') 
 # Elección 4: Estadísticas.
 def estadisticas():
     paises = leer_paises()
@@ -409,6 +412,7 @@ def estadisticas():
             else:
                 print("Opcion invalida, intente nuevamnte!")
         except KeyboardInterrupt:
-            print("Programa terminado por el usuario.")
+            print("Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"{e} Error de valor ingresado. Por favor, ingrese un número válido.") 
+    os.system('cls' if os.name == 'nt' else 'clear') 
