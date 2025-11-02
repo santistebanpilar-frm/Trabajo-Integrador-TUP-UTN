@@ -6,17 +6,17 @@
 Este proyecto se hizo con la idea de poder incorporar los conocimientos aprendidos en la materia de Programación I.  
 La base de datos se realizó gracias a la API de https://restcountries.com/.  
 El programa cuenta con un menú principal donde el usuario tendrá distintas operaciones para ejecutar.  
-  •Uno podrá buscar un país, el cual si existise se le devolvera una breve informacion.  
-  •Permite filtrar la información de la base de datos de acuerdo al continente, un determinado rango de poblacion o un rango de superficie.  
-  •Mostrará a los países ordenados por su nombre alfabeticamente, por la cantidad de habitantes y por su superfice.   
-  •Ofrece estadisticas de cual es el pais con mayor cantidad de poblacion como tambien cuales son los que tienen la menor cantidad.   
-  •Ademas brinda con el promedio de población y superficie. Incluso muestra cuantos paises se encuntran por continente.  
+  •Uno podrá buscar un país, el cual si existise se le devolvera una breve información.  
+  •Permite filtrar la información de la base de datos de acuerdo al continente, un determinado rango de población o un rango de superficie.  
+  •Mostrará a los países ordenados por su nombre alfabéticamente, por la cantidad de habitantes y por su superfice.   
+  •Ofrece estadísticas de cual es el país con mayor cantidad de población como también cuales son los que tienen la menor cantidad.   
+  •Además brinda con el promedio de población y superficie. Incluso muestra cuantos países se encuntran por continente.  
   
 
 # 💻 Instrucciones de uso 
-Antes de ejecutar el programa es importate tener instaladas e importadas las siguentes librerias las cuales son necesarias para el funcionamiento del código.
+Antes de ejecutar el programa es importate tener instaladas e importadas las siguentes librerías las cuales son necesarias para el funcionamiento del código.
 Ya que cada una tiene un papel fundamental para que el proyecto funcione de manera correcta.  
-LIbrerias:  
+Librerías:  
 •requests: realiza peticiones HTTP, en el caso del proyecto fue para obtener la API.
 •emojis: incorpora emojis al trabajo usando sus propios codigos Unicode.  
 •csv: permite leer y escribir archivos CSV.  
@@ -47,12 +47,12 @@ País(es) encontrado(s):
 ##**Ejemplo 2**  
 
 *<ins> "Entrada"	 </ins>*  
-minimo:int = int(input("Ingrese el minimo del rango de población: "))  
+minimo:int = int(input("Ingrese el mínimo del rango de población: "))  
 Usuario ingresa: 0  
-maximo:int = int(input("Ingrese el maximo del rango de población: "))  
+maximo:int = int(input("Ingrese el máximo del rango de población: "))  
 Usuario ingresa: 50  
 <*ins> "Salida" </ins>*  
-País(es) con una poblacion entre 0 y 50:  
+País(es) con una población entre 0 y 50:  
 
 Nombre: Territorio Británico del Océano Índico  
 Población: 0  
@@ -106,7 +106,5 @@ Oceanía: 27
 Antártida: 5 
 
 # 🪪 Participación de los integrantes
-Este trabajo se puedo realizar gracias a la comunicación y feedback de los alumnos. 
-Lo principal fue poder dialogar como se podian llevar las distintas tareas a realizar para que el codigo funcione de manera correcta.  
-Asi mismo se llego a un acuerdo de que hacia cada uno.  
-De esta manera poder ir realizando distintas partes del proyecto sin que hayan problemas a la hora de subir al repositorio.  
+Este trabajo se realizó gracias a la comunicación y feedback de los dos alumnos. 
+Fue esencial el diálogo para realizar las distintas tareas y poder subirlas al repositorio de forma existosa, sin superposición, y asi logrando que el código funcione de manera correcta.  
