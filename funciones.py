@@ -142,7 +142,7 @@ def buscar_pais():
             print(f"No se encontró al pais '{pais_a_buscar}' en nuestra base de datos.")
     except Exception as e:
         print(f"Error inesperado: {str(e)}")
-    input("PRESIONE ENTER PARA CONTINUAR...")
+    input("PRESIONE 'ENTER' PARA CONTINUAR...")
     os.system('cls' if os.name == 'nt' else 'clear')    
 
 # Elección 2: Filtrar países.
@@ -461,4 +461,5 @@ def estadisticas():
             print("Error: Interrupción por teclado.")
         except ValueError as e:
             print(f"{e} Error de valor ingresado. Por favor, ingrese un número válido.") 
+
     os.system('cls' if os.name == 'nt' else 'clear')
