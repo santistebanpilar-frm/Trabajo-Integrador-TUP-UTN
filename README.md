@@ -23,7 +23,6 @@ Librerias:
 Para que el proyecto corra de forma correcta se necesita instalarlas desde la terminal:   
 ``pip install requests``    
 
----
 ## 🐳 Uso con Docker
 Si **Docker** está instalado, se puede construir la imagen y ejecutar el programa en un contenedor, evitando la necesidad de instalar las librerías directamente en tu sistema.
 
