@@ -1,4 +1,4 @@
-### Tecnicatura Universitaria de Progrmación - UTN FRM  
+### Tecnicatura Universitaria de Programación - UTN FRM  
 ### Integrador Final: Manejo de Base de Datos de Países  
 ### Integrantes: Quirós, Pablo - Santisteban, Pilar (1prog2)  
 
@@ -26,6 +26,7 @@ Para que el proyecto corra de forma correcta se necesita instalarlas desde la te
 ## 🐳 Uso con Docker
 Si **Docker** está instalado, se puede construir la imagen y ejecutar el programa en un contenedor, evitando la necesidad de instalar las librerías directamente en tu sistema.
 
+Primero, hay que abrir Docker Desktop, y luego ejecutar las siguientes lineas:  
 Para **construir la imagen** de la aplicación:
 ``docker build -t paises-app .``
 
@@ -59,7 +60,7 @@ Usuario ingresa: 0
 maximo:int = int(input("Ingrese el maximo del rango de población: "))  
 Usuario ingresa: 50  
 <*ins> "Salida" </ins>*  
-País(es) con una poblacion entre 0 y 50:  
+País(es) con una población entre 0 y 50:  
 
 Nombre: Territorio Británico del Océano Índico  
 Población: 0  
@@ -81,7 +82,7 @@ Continente: Oceanía
 ##**Ejemplo 3**  
 
 *<ins> "Entrada"	 </ins>*   
-Solicitar al usuario que como ordenar a los paises.  
+Solicitar al usuario que como ordenar a los países.  
   opcion : str = str(input("Usted seleccionó la opción: "))  
 Usuario ingresa: 2  
 <*ins> "Salida" </ins>*   
@@ -99,7 +100,7 @@ Países ordenados por población:
 ##**Ejemplo 4**  
 
 *<ins> "Entrada"	 </ins>*  
-Solicitar al usuario que estadistica desea ver.  
+Solicitar al usuario que estadística desea ver.  
 opcion : str = str(input("Usted seleccionó la opción: "))   
 Usuario ingresa: 4  
 *<ins> "Salida" </ins>*  
@@ -114,6 +115,6 @@ Antártida: 5
 
 # 🪪 Participación de los integrantes
 Este trabajo se puedo realizar gracias a la comunicación y feedback de los alumnos. 
-Lo principal fue poder dialogar como se podian llevar las distintas tareas a realizar para que el codigo funcione de manera correcta.  
-Asi mismo se llego a un acuerdo de que hacia cada uno.  
+Lo principal fue poder dialogar como se podian llevar las distintas tareas a realizar para que el código funcione de manera correcta.  
+Asi mismo se llego a un acuerdo de que hacía cada uno.  
 De esta manera poder ir realizando distintas partes del proyecto sin que hayan problemas a la hora de subir al repositorio.  
