@@ -1,8 +1,6 @@
 # -----------------------------------------------------------
 # Importaciones necesarias para el funcionamiento del código.
 # -----------------------------------------------------------
-import emojis
-import csv
 import os
 
 # -----------------------------------
@@ -144,7 +142,7 @@ def buscar_pais():
             print(f"No se encontró al pais '{pais_a_buscar}' en nuestra base de datos.")
     except Exception as e:
         print(f"Error inesperado: {str(e)}")
-    os.system('pause')
+    input("PRESIONE ENTER PARA CONTINUAR...")
     os.system('cls' if os.name == 'nt' else 'clear')    
 
 # Elección 2: Filtrar países.
@@ -324,7 +322,7 @@ def filtrar_paises():
           
 # Elección 3: Ordenar países.
 def ordenar_paises():
-    paises = leer_paises()
+    paises:list = leer_paises()
     if not paises:
         print("No se pudieron cargar los países.")
         return
@@ -385,7 +383,7 @@ def ordenar_paises():
     
 # Elección 4: Estadísticas.
 def estadisticas():
-    paises = leer_paises()
+    paises:list = leer_paises()
     if not paises:
         print("No se pudieron cargar los países.")
         return
@@ -407,7 +405,7 @@ def estadisticas():
             ⏐⏐≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡⏐⏐         
                 """)
             # Solicitar al usuario que estadistica desea ver.
-            opcion : str = str(input("Usted seleccionó la opción: ")) 
+            opcion:str = str(input("Usted seleccionó la opción: ")) 
             
             # Estadistica 1: País con mayor y menor población.  
             if opcion == "1":

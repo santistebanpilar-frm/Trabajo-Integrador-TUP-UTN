@@ -11,7 +11,6 @@
 # Importaciones necesarias para el funcionamiento del código.
 # -----------------------------------------------------------
 import funciones
-import emojis
 import requests
 import csv
 import os
