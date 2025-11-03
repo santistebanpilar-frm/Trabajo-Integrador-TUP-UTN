@@ -115,6 +115,6 @@ Antártida: 5
 
 # 🪪 Participación de los integrantes
 Este trabajo se puedo realizar gracias a la comunicación y feedback de los alumnos. 
-Lo principal fue poder dialogar como se podian llevar las distintas tareas a realizar para que el código funcione de manera correcta.  
-Asi mismo se llego a un acuerdo de que hacía cada uno.  
+Lo principal fue poder dialogar cómo se podian llevar las distintas tareas a realizar para que el código funcione de manera correcta.  
+Así mismo se llegó a un acuerdo de que hacía cada uno.  
 De esta manera poder ir realizando distintas partes del proyecto sin que hayan problemas a la hora de subir al repositorio.  
