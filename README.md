@@ -1,20 +1,25 @@
 ### Tecnicatura Universitaria de Programación - UTN FRM  
 ### Integrador Final: Manejo de Base de Datos de Países  
+### Asignatura: Programación I - Profesor Ariel Enferrel 
 ### Integrantes: Quirós, Pablo - Santisteban, Pilar (1prog2)  
 
 # 📄 Descripción del programa 
 Este proyecto se hizo con la idea de poder incorporar los conocimientos aprendidos en la materia de Programación I.  
 La base de datos se realizó gracias a la API de https://restcountries.com/.  
 El programa cuenta con un menú principal donde el usuario tendrá distintas operaciones para ejecutar.  
-  •Uno podrá buscar un país, el cual si existise se le devolvera una breve informacion.  
-  •Permite filtrar la información de la base de datos de acuerdo al continente, un determinado rango de poblacion o un rango de superficie.  
-  •Mostrará a los países ordenados por su nombre alfabeticamente, por la cantidad de habitantes y por su superfice.   
-  •Ofrece estadisticas de cual es el pais con mayor cantidad de poblacion como tambien cuales son los que tienen la menor cantidad.   
-  •Ademas brinda con el promedio de población y superficie. Incluso muestra cuantos paises se encuntran por continente.  
+  •Uno podrá buscar un país, el cual si existiese se le devolverá una breve información.  
+  •Permite filtrar la información de la base de datos de acuerdo al continente, un determinado rango de población o un rango de superficie.  
+  •Mostrará a los países ordenados por su nombre alfabéticamente, por la cantidad de habitantes y por su superfice.   
+  •Ofrece estadísticas de cual es el país con mayor cantidad de población como también cuáles son los que tienen la menor cantidad.   
+  •Además brinda con el promedio de población y superficie. Incluso muestra cuantos países se encuentran por continente.  
   
+#🚧 Estructura  
+El proyecto consiste de dos documentos principales.  
+Primero se encuentra el archivo *main.py* el cual contiene funciones básicas del proyecto, la creación del archivo csv si no existiese, y el menú interactivo donde el usuario podrá elegir entre las distintas operaciones a realizar.  
+Y segundo, el archivo *funciones.py* que almacena principalmente las funciones que son llamadas desde el menú del *main*. Dentro además se encuentran funciones de validación y auxiliares.  
 
 # 💻 Instrucciones de uso 
-Antes de ejecutar el programa es importate tener instaladas e importadas las siguentes librerias las cuales son necesarias para el funcionamiento del código.
+Antes de ejecutar el programa es importate tener instaladas e importadas las siguientes librerías las cuales son necesarias para el funcionamiento del código.
 Ya que cada una tiene un papel fundamental para que el proyecto funcione de manera correcta.  
 Librerias:  
 •requests: realiza peticiones HTTP, en el caso del proyecto fue para obtener la API.
@@ -26,7 +31,7 @@ Para que el proyecto corra de forma correcta se necesita instalarlas desde la te
 ## 🐳 Uso con Docker
 Si **Docker** está instalado, se puede construir la imagen y ejecutar el programa en un contenedor, evitando la necesidad de instalar las librerías directamente en tu sistema.
 
-Primero, hay que abrir Docker Desktop, y luego ejecutar las siguientes lineas:  
+Primero, hay que abrir Docker Desktop, y luego ejecutar las siguientes líneas:  
 Para **construir la imagen** de la aplicación:
 ``docker build -t paises-app .``
 
@@ -55,9 +60,9 @@ País(es) encontrado(s):
 ##**Ejemplo 2**  
 
 *<ins> "Entrada"	 </ins>*  
-minimo:int = int(input("Ingrese el minimo del rango de población: "))  
+minimo:int = int(input("Ingrese el mínimo del rango de población: "))  
 Usuario ingresa: 0  
-maximo:int = int(input("Ingrese el maximo del rango de población: "))  
+maximo:int = int(input("Ingrese el máximo del rango de población: "))  
 Usuario ingresa: 50  
 <*ins> "Salida" </ins>*  
 País(es) con una población entre 0 y 50:  
@@ -115,6 +120,6 @@ Antártida: 5
 
 # 🪪 Participación de los integrantes
 Este trabajo se puedo realizar gracias a la comunicación y feedback de los alumnos. 
-Lo principal fue poder dialogar cómo se podian llevar las distintas tareas a realizar para que el código funcione de manera correcta.  
+Lo principal fue poder dialogar cómo se podían llevar las distintas tareas a realizar para que el código funcione de manera correcta.  
 Así mismo se llegó a un acuerdo de que hacía cada uno.  
-De esta manera poder ir realizando distintas partes del proyecto sin que hayan problemas a la hora de subir al repositorio.  
+De esta manera poder ir realizando distintas partes del proyecto sin que haya problemas a la hora de subir al repositorio.  
