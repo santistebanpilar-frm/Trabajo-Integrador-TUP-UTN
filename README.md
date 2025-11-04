@@ -13,7 +13,7 @@ El programa cuenta con un menú principal donde el usuario tendrá distintas ope
   •Ofrece estadísticas de cual es el país con mayor cantidad de población como también cuáles son los que tienen la menor cantidad.   
   •Además brinda con el promedio de población y superficie. Incluso muestra cuantos países se encuentran por continente.  
   
-#🚧 Estructura  
+# 🚧 Estructura  
 El proyecto consiste de dos documentos principales.  
 Primero se encuentra el archivo *main.py* el cual contiene funciones básicas del proyecto, la creación del archivo csv si no existiese, y el menú interactivo donde el usuario podrá elegir entre las distintas operaciones a realizar.  
 Y segundo, el archivo *funciones.py* que almacena principalmente las funciones que son llamadas desde el menú del *main*. Dentro además se encuentran funciones de validación y auxiliares.  
