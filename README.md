@@ -21,17 +21,19 @@ Y segundo, el archivo *funciones.py* que almacena principalmente las funciones q
 # 💻 Instrucciones de uso 
 Antes de ejecutar el programa es importate tener instaladas e importadas las siguientes librerías las cuales son necesarias para el funcionamiento del código.
 Ya que cada una tiene un papel fundamental para que el proyecto funcione de manera correcta.  
-Librerias:  
-•requests: realiza peticiones HTTP, en el caso del proyecto fue para obtener la API.
+Librerias nátivas de Python:   
 •csv: permite leer y escribir archivos CSV.  
 •os: módulo que provee de manera versátil de usar funcionalidades dependientes del sistema operativo.  
-Para que el proyecto corra de forma correcta se necesita instalarlas desde la terminal:   
+Librerías no-nativas (se deben instalar):  
+•requests: realiza peticiones HTTP, en el caso del proyecto fue para obtener la API. 
 ``pip install requests``    
 
 ## 🐳 Uso con Docker
 Si **Docker** está instalado, se puede construir la imagen y ejecutar el programa en un contenedor, evitando la necesidad de instalar las librerías directamente en tu sistema.
 
-Primero, hay que abrir Docker Desktop, y luego ejecutar las siguientes líneas:  
+Primero, hay que abrir Docker Desktop.  
+Segundo, hay que abrir una terminal desde dónde esté el Dockerfile de este repositorio.
+Tercero, ejecutar las siguientes líneas en dicha terminal.  
 Para **construir la imagen** de la aplicación:
 ``docker build -t paises-app .``
 
