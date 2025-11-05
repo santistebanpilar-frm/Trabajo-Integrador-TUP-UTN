@@ -25,7 +25,7 @@ Librerias nátivas de Python:
 •csv: permite leer y escribir archivos CSV.  
 •os: módulo que provee de manera versátil de usar funcionalidades dependientes del sistema operativo.  
 Librerías no-nativas (se deben instalar):  
-•requests: realiza peticiones HTTP, en el caso del proyecto fue para obtener la API. 
+•requests: realiza peticiones HTTP, en el caso del proyecto fue para obtener la API.   
 ``pip install requests``    
 
 ## 🐳 Uso con Docker
@@ -33,7 +33,8 @@ Si **Docker** está instalado, se puede construir la imagen y ejecutar el progra
 
 -Primero, hay que abrir Docker Desktop.  
 -Segundo, hay que abrir una terminal desde dónde esté el Dockerfile de este repositorio.  
--Tercero, ejecutar las siguientes líneas en dicha terminal.  
+-Tercero, ejecutar las siguientes líneas en dicha terminal.
+
 Para **construir la imagen** de la aplicación:
 ``docker build -t paises-app .``
 
