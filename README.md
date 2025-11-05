@@ -31,9 +31,9 @@ Librerías no-nativas (se deben instalar):
 ## 🐳 Uso con Docker
 Si **Docker** está instalado, se puede construir la imagen y ejecutar el programa en un contenedor, evitando la necesidad de instalar las librerías directamente en tu sistema.
 
-Primero, hay que abrir Docker Desktop.  
-Segundo, hay que abrir una terminal desde dónde esté el Dockerfile de este repositorio.
-Tercero, ejecutar las siguientes líneas en dicha terminal.  
+-Primero, hay que abrir Docker Desktop.  
+-Segundo, hay que abrir una terminal desde dónde esté el Dockerfile de este repositorio.  
+-Tercero, ejecutar las siguientes líneas en dicha terminal.  
 Para **construir la imagen** de la aplicación:
 ``docker build -t paises-app .``
 
